@@ -1,0 +1,12 @@
+.accountContainer {
+  width: 600px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.accountContainer h1 {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 600px;
+
+  box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+  -webkit-box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+  -moz-box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+}
+
+.container img {
+  height: 100px;
+  width: 100px;
+}
+
+.container .information {
+  width: 100%;
+  margin: 0px 10px;
+}
+
+.container .information h5 {
+  font-weight: 600;
+  font-size: 15px;
+  color: #800acf;
+  margin-bottom: 5px;
+}
+
+.container .information p {
+  font-size: 13px;
+  color: #727272;
+  margin: 0px;
+}
+
+.container .information p span {
+  font-weight: 600;
+}
+
+.container button {
+  background-color: #800acf;
+  border: none;
+  color: #fdfdfd;
+  height: 30px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.container button i {
+  font-size: 13px;
+}

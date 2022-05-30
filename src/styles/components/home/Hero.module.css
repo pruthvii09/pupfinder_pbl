@@ -1,0 +1,12 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heroSection img {
+  width: 400px;
+  margin: 10px;
+  cursor: pointer;
+}

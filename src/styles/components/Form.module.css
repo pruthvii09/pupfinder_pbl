@@ -1,0 +1,153 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  /* width: 70%; */
+  min-height: 70vh;
+  margin: auto;
+  padding: 30px 0px;
+}
+
+.formContainer .form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.formContainer .form h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.formContainer .form h3 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.formContainer .form .field {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0px;
+}
+
+.formContainer .form .field label {
+  font-size: 14px;
+  margin-bottom: -8px;
+  z-index: 1;
+  background-color: #fdfdfd;
+  width: fit-content;
+  margin-left: 5px;
+  padding: 0px 10px;
+  color: #700ab4;
+}
+
+.formContainer .form input[type='text'],
+.formContainer .form input[type='email'],
+.formContainer .form button,
+.formContainer .form select {
+  width: 300px;
+  border-radius: 5px;
+}
+
+.formContainer .form input[type='text'],
+.formContainer .form input[type='email'],
+.formContainer .form select {
+  padding: 11px 14px;
+  outline: none;
+  border: 1px solid #727272be;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.formContainer .form button {
+  background-color: #800acf;
+  padding: 11px 0px;
+  border: none;
+  color: #fdfdfd;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.formContainer .form i {
+  margin-left: 5px;
+}
+
+.formContainer .form span {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.formContainer .form span strong {
+  font-weight: 500;
+  color: #db0d0d;
+}
+
+.formContainer .form button:hover {
+  background-color: #700ab4;
+}
+
+.formContainer .form p {
+  margin-top: 10px;
+}
+
+.formContainer .form .profilePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+.formContainer .form .profilePicker img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.formContainer .form .profilePicker input[type='file'] {
+  display: none;
+}
+
+.formContainer .form .profilePicker label {
+  font-size: 13px;
+  color: #333333;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Belts */
+
+.beltsContainer {
+  margin: 10px 0px;
+  width: 300px;
+}
+
+.beltsContainer label {
+  background-color: #fdfdfd;
+  color: #700ab4;
+  font-size: 14px;
+  margin-left: 5px;
+  padding: 0px 10px;
+}
+
+.beltsContainer .belts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid #727272be;
+  margin: 10px 0px;
+  border-radius: 5px;
+  margin-top: -10px;
+  width: 300px;
+  padding: 10px;
+}

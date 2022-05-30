@@ -1,0 +1,33 @@
+.belt {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgb(188, 188, 188);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.belt img {
+  width: 80px;
+  cursor: pointer;
+}
+
+.belt p {
+  font-size: 13px;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.belt input {
+  size: 10px;
+  margin-top: 3px;
+  display: none;
+}
+
+.active {
+  border-color: #ff003c !important;
+}

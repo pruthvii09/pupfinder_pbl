@@ -1,0 +1,50 @@
+.ordersContainer {
+  margin: 20px;
+}
+
+.ordersContainer button {
+  background-color: #800acf;
+  color: #fdfdfd;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.ordersContainer table th {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 5px;
+  color: #fdfdfd;
+  background-color: #800acf;
+}
+
+.ordersContainer table,
+.ordersContainer table th,
+.ordersContainer table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.orderData {
+  margin: 5px 0px;
+}
+
+.orderData td {
+  font-size: 13px;
+  padding: 5px;
+}
+
+.orderData input {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.orderData .active {
+  font-weight: 600;
+  color: #12b400;
+}
+
+.orderData .deactive {
+  font-weight: 600;
+  color: #ea1616;
+}
