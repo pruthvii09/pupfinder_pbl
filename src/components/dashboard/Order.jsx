@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+import QRCode from 'qrcode.react';
 import styles from '../../styles/components/dashboard/ViewOrders.module.css';
 
 const Order = ({ order }) => {
@@ -42,9 +43,22 @@ const Order = ({ order }) => {
     setDeliveredState(!deliveredState);
   };
 
+  const downloadQRCode = (id) => {
+    const qrCodeURL = document
+      .getElementById('qrCodeEl')
+      .toDataURL('image/png ')
+      .replace('image/png', 'image/octet-stream');
+    let aEl = document.createElement('a');
+    aEl.href = qrCodeURL;
+    aEl.download = `${id}.png`;
+    document.body.appendChild(aEl);
+    aEl.click();
+    document.body.removeChild(aEl);
+  };
+
   return (
     <tr className={styles.orderData}>
-      <td>{order.id}</td>
+      <td style={{ color: '#800acf', fontWeight: '600' }}>{order.id}</td>
       <td>{order.name}</td>
       <td>{order.phoneNumber}</td>
       <td>{order.email}</td>
@@ -55,8 +69,11 @@ const Order = ({ order }) => {
         {order.orderStreetAddress} {order.orderAddressLine2} {order.orderCity}
         {order.orderPincode}
       </td>
-      <td>{order.orderPhoneNumber}</td>
+      <td>
+        <a href={`tel:${order.orderPhoneNumber}`}>{order.orderPhoneNumber}</a>
+      </td>
       <td>{order.orderedAt}</td>
+      <td>{order.paymentId}</td>
       <td
         className={order.packaging ? `${styles.active}` : `${styles.deactive}`}
       >
@@ -96,8 +113,21 @@ const Order = ({ order }) => {
         />
       </td>
       <td>
-        <button>
+        <button onClick={() => downloadQRCode(order.id)}>
           <i className="fa-solid fa-qrcode"></i>
+        </button>
+        <QRCode
+          id="qrCodeEl"
+          size={150}
+          value={'https://pupfinder.vercel.app/' + order.id}
+          style={{ display: 'none' }}
+        />
+      </td>
+      <td>
+        <button>
+          <a href={order.image} target="_blank">
+            <i className="fa-solid fa-download"></i>
+          </a>
         </button>
       </td>
     </tr>

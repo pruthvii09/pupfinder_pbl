@@ -1,0 +1,46 @@
+.donationsContainer {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.donationsContainer h1 {
+  text-align: center;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.donation {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 20px 0px;
+  box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+  -webkit-box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+  -moz-box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.263);
+}
+
+.donation h4 {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.donation h5 {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.donation h5 span {
+  color: #800acf;
+  font-weight: 700;
+}
+
+.donation h6 {
+  color: #727272;
+  font-size: 13px;
+}
+
+.donation h6 i {
+  margin-left: 5px;
+}

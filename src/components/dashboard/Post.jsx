@@ -14,6 +14,9 @@ const Post = ({ post }) => {
       <img src={post.image} alt={`${post.id}_image`} />
       <div className={styles.information}>
         <h5>{post.breed}</h5>
+        <p>
+          {post.phoneNumber} <i className="fa-solid fa-phone"></i>
+        </p>
         <p>{post.address}</p>
         <p>{post.city}</p>
       </div>

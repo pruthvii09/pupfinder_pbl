@@ -9,7 +9,7 @@ export const Store = createContext();
 
 const initialState = {
   uid: null,
-  admin: true,
+  admin: false,
 };
 
 const reducer = (state, action) => {

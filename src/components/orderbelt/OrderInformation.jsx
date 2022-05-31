@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Snackbar from '../Snackbar';
 import styles from '../../styles/components/Form.module.css';
+import Loader from '../Loader';
 
 const OrderInformation = ({
   options,
@@ -21,6 +22,7 @@ const OrderInformation = ({
   setMessage,
   color,
   setColor,
+  loading,
 }) => {
   return (
     <div className={styles.formContainer}>
@@ -76,8 +78,15 @@ const OrderInformation = ({
             onChange={(e) => setOrderPhoneNumber(e.target.value)}
           />
         </div>
-        <button onClick={handleOrderInformation}>
-          Proceed with the payment <i className="fa-solid fa-credit-card"></i>
+        <button onClick={handleOrderInformation} disabled={loading}>
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              Proceed with the payment{' '}
+              <i className="fa-solid fa-credit-card"></i>
+            </>
+          )}
         </button>
         <button style={{ marginTop: 0 }} onClick={() => setCurrentWizard('1')}>
           Previous

@@ -13,6 +13,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.home h1 span {
+  color: #db0d0d;
+  border-bottom: 3px solid #db0d0d;
+}
+
 .home .adoptionContainer {
   margin: 50px 0px;
   display: flex;
@@ -41,6 +46,19 @@
 .home .adoptionContainer button i {
   margin-left: 5px;
   font-size: 13px;
+}
+
+.home .adoptionContainer .donate {
+  background-color: #fdfdfd;
+  color: #800acf;
+  border: 1px solid #800acf;
+  font-weight: 500;
+  transition: 0.3s all ease-in-out;
+}
+
+.home .adoptionContainer .donate:hover {
+  background-color: #800acf;
+  color: #fdfdfd;
 }
 
 /* Cards Section */

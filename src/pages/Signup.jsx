@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 import { auth, db } from '../firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import {
+  doc,
+  setDoc,
+  query,
+  collection,
+  getDocs,
+  where,
+} from 'firebase/firestore';
 import { signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
 import { actionTypes, useStateValue } from '../store';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/components/Form.module.css';
 import Snackbar from '../components/Snackbar';
+import Loader from '../components/Loader';
 
 const Signup = () => {
   const [{ uid }, dispatch] = useStateValue();
+
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState('');
 
+  const [loading, setLoading] = useState(false);
   const [showOtpField, setShowOtpField] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState('');
@@ -31,33 +43,61 @@ const Signup = () => {
   };
 
   const sendOTP = async () => {
-    if (name.length <= 0 || email.length <= 0 || phoneNumber.length <= 0) {
-      setMessage('Please enter all the details');
-      setColor('#e19a00');
+    setLoading(true);
+
+    // check mobile number is already registered?
+    const q = query(
+      collection(db, 'users'),
+      where('phoneNumber', '==', phoneNumber)
+    );
+    const querySnapshot = await getDocs(q);
+
+    let userFoundFlag = false;
+
+    querySnapshot.forEach((doc) => {
+      userFoundFlag = true;
+    });
+
+    if (userFoundFlag) {
+      setMessage('Entered phone number is already registered with pupfinder.');
+      setColor('#d7082b');
       setOpenSnackbar(true);
-    } else if (phoneNumber.length !== 10) {
-      setMessage('Phone number must be exactly 10 digits long.');
-      setColor('#e19a00');
-      setOpenSnackbar(true);
+      setLoading(false);
+      setLoading(false);
     } else {
-      generateRecaptcha();
+      if (name.length <= 0 || email.length <= 0 || phoneNumber.length <= 0) {
+        setMessage('Please enter all the details');
+        setColor('#e19a00');
+        setOpenSnackbar(true);
+        setLoading(false);
+      } else if (phoneNumber.length !== 10) {
+        setMessage('Phone number must be exactly 10 digits long.');
+        setColor('#e19a00');
+        setOpenSnackbar(true);
+        setLoading(false);
+      } else {
+        generateRecaptcha();
 
-      const appVerifier = window.recaptchaVerifier;
+        const appVerifier = window.recaptchaVerifier;
 
-      await signInWithPhoneNumber(auth, `+91 ${phoneNumber}`, appVerifier)
-        .then((confirmationResult) => {
-          window.confirmationResult = confirmationResult;
-          setShowOtpField(true);
-        })
-        .catch((error) => {
-          setMessage('Opps. Something went wrong, Please try again. :(');
-          setColor('#d7082b');
-          setOpenSnackbar(true);
-        });
+        await signInWithPhoneNumber(auth, `+91 ${phoneNumber}`, appVerifier)
+          .then((confirmationResult) => {
+            window.confirmationResult = confirmationResult;
+            setShowOtpField(true);
+          })
+          .catch((error) => {
+            setMessage('Opps. Something went wrong, Please try again. :(');
+            setColor('#d7082b');
+            setOpenSnackbar(true);
+            setLoading(false);
+          });
+        setLoading(false);
+      }
     }
   };
 
   const verifyOTP = async () => {
+    setLoading(true);
     if (otp.length !== 6) {
       setMessage('OTP must be exactly 6 digits long.');
       setColor('#e19a00');
@@ -78,12 +118,16 @@ const Signup = () => {
           });
 
           dispatch({ type: actionTypes.SET_UID, uid: user.uid });
+
+          navigate('/');
         })
         .catch((error) => {
           setMessage('OTP you have entered is incorrect. Please try again.');
           setColor('#d7082b');
+          setLoading(false);
           setOpenSnackbar(true);
         });
+      setLoading(false);
     }
   };
 
@@ -108,7 +152,9 @@ const Signup = () => {
                 onChange={(e) => setOtp(e.target.value)}
               />
             </div>
-            <button onClick={verifyOTP}>Submit</button>
+            <button onClick={verifyOTP}>
+              {loading ? <Loader /> : 'Submit'}
+            </button>
           </>
         ) : (
           <>
@@ -142,12 +188,15 @@ const Signup = () => {
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
-            <button onClick={sendOTP}>Get OTP</button>
+            <button onClick={sendOTP} disabled={loading}>
+              {loading ? <Loader /> : ' Get OTP'}
+            </button>
           </>
         )}
 
         <p>
-          Already have an account? <a href="/login">Click here</a>
+          Already have an account?
+          <span onClick={() => navigate('/login')}>Click here</span>
         </p>
         <div id="recaptcha-container"></div>
       </div>

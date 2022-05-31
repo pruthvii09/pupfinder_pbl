@@ -10,3 +10,46 @@
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
+
+.accountContainer h4 {
+  font-weight: 500;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.accountContainer h4 span {
+  color: #db0d0d;
+  font-weight: 600;
+  font-size: 23px;
+}
+
+/* Warning */
+.warning {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.warning h6 {
+  color: #db0d0d;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.warning p {
+  font-size: 13px;
+  margin: 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.warning p span {
+  color: rgb(63, 63, 255);
+  border-bottom: 1px solid rgb(63, 63, 255);
+  cursor: pointer;
+}

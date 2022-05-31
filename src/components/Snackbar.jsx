@@ -34,8 +34,8 @@ const Snackbar = ({ openSnackbar, setOpenSnackbar, message, color }) => {
   );
 };
 
-// Snackbar.defaultProps = {
-//   color: '#800acf',
-// };
+Snackbar.defaultProps = {
+  color: '#800acf',
+};
 
 export default Snackbar;

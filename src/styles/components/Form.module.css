@@ -68,6 +68,9 @@
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
   margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -124,6 +127,13 @@
   flex-direction: column;
 }
 
+.formContainer p span {
+  margin-left: 5px;
+  color: rgb(63, 63, 255);
+  border-bottom: 1px solid rgb(63, 63, 255);
+  cursor: pointer;
+}
+
 /* Belts */
 
 .beltsContainer {
@@ -150,4 +160,33 @@
   margin-top: -10px;
   width: 300px;
   padding: 10px;
+}
+
+/* Warning */
+.warning {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.warning h6 {
+  color: #db0d0d;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.warning p {
+  font-size: 13px;
+  margin: 0px;
+  text-align: center;
+}
+
+.warning p span {
+  margin-left: 5px;
+  color: rgb(63, 63, 255);
+  border-bottom: 1px solid rgb(63, 63, 255);
+  cursor: pointer;
 }

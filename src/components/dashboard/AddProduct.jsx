@@ -49,6 +49,12 @@ const AddProduct = () => {
           setMessage('Product added successfully.');
           setColor('#1fcf0a');
           setOpenSnackbar(true);
+
+          setImage('');
+          setName('');
+          setPrice('');
+          setQuantity('');
+          setDescription('');
         })
         .catch((error) => {
           setMessage('Opps. Something went wrong, Please try again. :(');

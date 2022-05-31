@@ -1,5 +1,5 @@
 .ordersContainer {
-  margin: 20px;
+  margin: 2px;
 }
 
 .ordersContainer button {
@@ -8,6 +8,10 @@
   padding: 5px 15px;
   border: none;
   cursor: pointer;
+}
+
+.ordersContainer button a {
+  color: #fdfdfd;
 }
 
 .ordersContainer table th {

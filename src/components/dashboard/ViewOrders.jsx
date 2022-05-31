@@ -40,10 +40,12 @@ const ViewOrders = () => {
           <th>Delivery Address</th>
           <th>Delivery phone</th>
           <th>Ordered at</th>
+          <th>Payment Id</th>
           <th>Packaging</th>
           <th>Dispatched</th>
           <th>Delivered</th>
-          <th>Generate QR</th>
+          <th>Generate QR Code</th>
+          <th>Download Photo</th>
         </tr>
         {orders.map((order) => (
           <Order order={order} key={order.id} />

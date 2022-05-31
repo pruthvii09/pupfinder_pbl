@@ -12,8 +12,8 @@ const Admin = () => {
 
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState('username');
-  const [password, setPassword] = useState('password');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState('');

@@ -11,19 +11,25 @@ import {
 } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { useStateValue } from '../../store';
+import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/components/orderbelt/Wizard.module.css';
 import BeltInformation from './BeltInformation';
 import OrderInformation from './OrderInformation';
 import PaymentInformation from './PaymentInformation';
+import { Navigate } from 'react-router-dom';
 
 const Wizard = () => {
   const [{ uid }, dispatch] = useStateValue();
 
   const [currentWizard, setCurrentWizard] = useState('1');
 
+  const navigate = useNavigate();
+
   const options = ['Aurangabad', 'Pune', 'Mumbai', 'Jalna', 'Beed', 'Latur'];
 
   const [products, setProducts] = useState([]);
+
+  const [loading, setLoading] = useState(false);
 
   const [image, setImage] = useState('');
   const [petName, setPetName] = useState('');
@@ -92,7 +98,8 @@ const Wizard = () => {
     }
   };
 
-  const handleOrderInformation = () => {
+  const handleOrderInformation = async () => {
+    setLoading(true);
     if (
       orderStreetAddress.length <= 0 ||
       orderAddressLine2.length <= 0 ||
@@ -102,59 +109,86 @@ const Wizard = () => {
       setMessage('Please enter all the details');
       setColor('#e19a00');
       setOpenSnackbar(true);
+      setLoading(false);
     } else if (orderPhoneNumber.length !== 10) {
       setMessage('Phone number must be exactly 10 digits long.');
       setColor('#e19a00');
       setOpenSnackbar(true);
+      setLoading(false);
     } else {
-      const imageRef = ref(storage, 'images/orders/' + image.name);
-      uploadBytesResumable(imageRef, image)
-        .then((snapshot) => {
-          getDownloadURL(snapshot.ref).then((url) => {
-            // store data
-            const ordersCollectionRef = collection(db, 'orders');
-            addDoc(ordersCollectionRef, {
-              uid: uid,
-              image: url,
-              petName: petName,
-              name: name,
-              address: address,
-              phoneNumber: phoneNumber,
-              email: email,
-              beltType: beltType,
-              beltId: beltId,
-              beltImage: beltImage,
-              beltPrice: beltPrice,
-              orderStreetAddress: orderStreetAddress,
-              orderAddressLine2: orderAddressLine2,
-              orderCity: orderCity,
-              orderPincode: orderPincode,
-              orderPhoneNumber: orderPhoneNumber,
-              orderedAt: currentDate,
-              packaging: false,
-              dispatched: false,
-              dispatchedAt: '',
-              delivered: false,
-              deliveredAt: '',
-            });
+      var options = {
+        key: 'rzp_test_DRDqnRyix1jf6E',
+        key_secret: 'itUgLBO43iLhoeMrrQv4gS7Q',
+        amount: beltPrice * 100,
+        currency: 'INR',
+        name: 'pupfinder',
+        description: 'pupfinder payment gateway',
+        handler: function (response) {
+          const imageRef = ref(storage, 'images/orders/' + image.name);
+          uploadBytesResumable(imageRef, image)
+            .then((snapshot) => {
+              getDownloadURL(snapshot.ref).then((url) => {
+                // store data
+                const ordersCollectionRef = collection(db, 'orders');
+                addDoc(ordersCollectionRef, {
+                  uid: uid,
+                  paymentId: response.razorpay_payment_id,
+                  image: url,
+                  petName: petName,
+                  name: name,
+                  address: address,
+                  phoneNumber: phoneNumber,
+                  email: email,
+                  beltType: beltType,
+                  beltId: beltId,
+                  beltImage: beltImage,
+                  beltPrice: beltPrice,
+                  orderStreetAddress: orderStreetAddress,
+                  orderAddressLine2: orderAddressLine2,
+                  orderCity: orderCity,
+                  orderPincode: orderPincode,
+                  orderPhoneNumber: orderPhoneNumber,
+                  orderedAt: currentDate,
+                  packaging: false,
+                  dispatched: false,
+                  dispatchedAt: '',
+                  delivered: false,
+                  deliveredAt: '',
+                  free: false,
+                });
 
-            // decrement quantity of ordered belt
-            const beltRef = doc(db, 'products', beltId);
-            updateDoc(beltRef, {
-              quantity: increment(-1),
+                // decrement quantity of ordered belt
+                const beltRef = doc(db, 'products', beltId);
+                updateDoc(beltRef, {
+                  quantity: increment(-1),
+                });
+              });
+              setMessage('Your order is placed successfully.');
+              setColor('#1fcf0a');
+              setOpenSnackbar(true);
+              setLoading(false);
+
+              navigate('/account');
+            })
+            .catch((error) => {
+              setMessage('Opps. Something went wrong, Please try again. :(');
+              setColor('#d7082b');
+              setOpenSnackbar(true);
+              setLoading(false);
             });
-          });
-          setMessage('Your order is placed successfully.');
-          setColor('#1fcf0a');
-          setOpenSnackbar(true);
-        })
-        .catch((error) => {
-          setMessage('Opps. Something went wrong, Please try again. :(');
-          setColor('#d7082b');
-          setOpenSnackbar(true);
-        });
-      // setCurrentWizard('3');
+        },
+        notes: {
+          address: 'Razorpay Corporate Office',
+        },
+        theme: {
+          color: '#800acf',
+        },
+      };
+
+      var pay = new window.Razorpay(options);
+      pay.open();
     }
+    setLoading(false);
   };
 
   return (
@@ -197,25 +231,6 @@ const Wizard = () => {
             2
           </span>
         </div>
-        <div className={styles.line}></div>
-        <div
-          className={
-            currentWizard === '3'
-              ? `${styles.singleWizard} ${styles.singleWizardActive}`
-              : `${styles.singleWizard}`
-          }
-          onClick={() => setCurrentWizard('3')}
-        >
-          <span
-            className={
-              currentWizard === '3'
-                ? `${styles.wizardNumberActive}`
-                : `${styles.wizardNumber}`
-            }
-          >
-            3
-          </span>
-        </div>
       </div>
 
       {currentWizard === '1' ? (
@@ -247,8 +262,10 @@ const Wizard = () => {
           setMessage={setMessage}
           color={color}
           setColor={setColor}
+          loading={loading}
+          setLoading={setLoading}
         />
-      ) : currentWizard === '2' ? (
+      ) : (
         <OrderInformation
           options={options}
           orderStreetAddress={orderStreetAddress}
@@ -268,9 +285,9 @@ const Wizard = () => {
           setMessage={setMessage}
           color={color}
           setColor={setColor}
+          loading={loading}
+          setLoading={setLoading}
         />
-      ) : (
-        <PaymentInformation />
       )}
     </div>
   );

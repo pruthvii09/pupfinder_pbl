@@ -25,13 +25,13 @@ const Header = () => {
       <ul>
         <li>
           <a
-            href="/order-belt"
+            href="/donate"
             onClick={(e) => {
               e.preventDefault();
-              navigate('/order-belt');
+              navigate('/donate');
             }}
           >
-            Order belt
+            Donate now
           </a>
         </li>
 
@@ -63,17 +63,41 @@ const Header = () => {
         )}
 
         {uid && (
-          <li>
-            <a
-              href="/account"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/account');
-              }}
-            >
-              Account
-            </a>
-          </li>
+          <>
+            <li>
+              <a
+                href="/post-dog"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/post-dog');
+                }}
+              >
+                Post dog
+              </a>
+            </li>
+            <li>
+              <a
+                href="/order-belt"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/order-belt');
+                }}
+              >
+                Order belt
+              </a>
+            </li>
+            <li>
+              <a
+                href="/account"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/account');
+                }}
+              >
+                Account
+              </a>
+            </li>
+          </>
         )}
       </ul>
     </nav>
