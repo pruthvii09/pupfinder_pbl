@@ -41,3 +41,10 @@
   height: 0.5px;
   width: 100%;
 }
+
+/* Media Query */
+@media screen and (max-width: 330px) {
+  .wizard {
+    width: 400px;
+  }
+}

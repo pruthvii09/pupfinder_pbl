@@ -1,7 +1,6 @@
 .formContainer {
   display: flex;
   align-items: center;
-  /* width: 70%; */
   min-height: 70vh;
   margin: auto;
   padding: 30px 0px;
@@ -189,4 +188,14 @@
   color: rgb(63, 63, 255);
   border-bottom: 1px solid rgb(63, 63, 255);
   cursor: pointer;
+}
+
+/* Media Query */
+@media screen and (max-width: 330px) {
+  .formContainer .form input[type='text'],
+  .formContainer .form input[type='email'],
+  .formContainer .form button,
+  .formContainer .form select {
+    width: 94vw;
+  }
 }

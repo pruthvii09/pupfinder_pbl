@@ -26,8 +26,9 @@ const Account = () => {
   const [freeOrders, setFreeOrders] = useState([]);
 
   useEffect(() => {
+    console.log(uid);
     if (!uid) {
-      navigate('/signup');
+      // navigate('/signup');
     }
 
     const getUser = async () => {

@@ -83,4 +83,16 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 30px 10px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+/* Media Query */
+@media screen and (max-width: 710px) {
+  .adoptionContainer {
+    padding: 0px 10px;
+  }
+  .home .adoptionContainer p {
+    width: 100%;
+  }
 }

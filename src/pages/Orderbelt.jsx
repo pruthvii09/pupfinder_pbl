@@ -19,6 +19,7 @@ const Orderbelt = () => {
               marginTop: 30,
               fontSize: 25,
               fontWeight: 700,
+              width: '100%',
             }}
           >
             Order belt

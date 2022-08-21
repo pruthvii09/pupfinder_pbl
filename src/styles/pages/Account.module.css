@@ -53,3 +53,10 @@
   border-bottom: 1px solid rgb(63, 63, 255);
   cursor: pointer;
 }
+
+@media screen and (max-width: 630px) {
+  .accountContainer {
+    padding: 10px;
+    width: 100%;
+  }
+}

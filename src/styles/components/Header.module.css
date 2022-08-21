@@ -10,6 +10,10 @@
   box-shadow: 0px 2px 8px -5px rgba(0, 0, 0, 0.269);
 }
 
+.navbar .hamburger {
+  display: none;
+}
+
 .navbar .logo {
   display: flex;
   align-items: center;
@@ -44,4 +48,44 @@
   text-decoration: none;
   color: #1e1e1e;
   font-weight: 500;
+}
+
+@media screen and (max-width: 670px) {
+  .navbar {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .navbar .hamburger {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+  }
+
+  .navbar .active {
+    height: fit-content;
+  }
+
+  .navbar .logo {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    padding: 0px;
+    align-items: center;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+  }
+
+  .navbar ul li {
+    margin: 5px 0px;
+  }
+
+  .navbar ul li a {
+    text-align: center;
+  }
 }
