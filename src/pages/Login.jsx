@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
@@ -21,6 +21,10 @@ const Login = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState('');
   const [color, setColor] = useState('');
+
+  useEffect(() => {
+    generateRecaptcha();
+  }, []);
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -54,7 +58,7 @@ const Login = () => {
       });
 
       if (userFoundFlag) {
-        generateRecaptcha();
+        // generateRecaptcha();
 
         const appVerifier = window.recaptchaVerifier;
 
@@ -96,10 +100,14 @@ const Login = () => {
           navigate('/');
         })
         .catch((error) => {
+          if (error.message == 'dispatch is not a function') {
+            return navigate('/');
+          }
           setMessage('OTP you have entered is incorrect. Please try again.');
+          console.log(error.message);
           setColor('#d7082b');
-          setOpenSnackbar(true);
           setLoading(false);
+          setOpenSnackbar(true);
         });
       setLoading(false);
     }

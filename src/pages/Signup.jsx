@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import {
   doc,
@@ -30,6 +30,10 @@ const Signup = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState('');
   const [color, setColor] = useState('');
+
+  useEffect(() => {
+    generateRecaptcha();
+  }, []);
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -76,7 +80,7 @@ const Signup = () => {
         setOpenSnackbar(true);
         setLoading(false);
       } else {
-        generateRecaptcha();
+        // generateRecaptcha();
 
         const appVerifier = window.recaptchaVerifier;
 
@@ -86,7 +90,8 @@ const Signup = () => {
             setShowOtpField(true);
           })
           .catch((error) => {
-            setMessage('Opps. Something went wrong, Please try again. :(');
+            // setMessage('Opps. Something went wrong, Please try again. :(');
+            setMessage(error.message);
             setColor('#d7082b');
             setOpenSnackbar(true);
             setLoading(false);
@@ -122,7 +127,11 @@ const Signup = () => {
           navigate('/');
         })
         .catch((error) => {
+          if (error.message == 'dispatch is not a function') {
+            return navigate('/');
+          }
           setMessage('OTP you have entered is incorrect. Please try again.');
+          console.log(error.message);
           setColor('#d7082b');
           setLoading(false);
           setOpenSnackbar(true);
@@ -198,6 +207,7 @@ const Signup = () => {
           Already have an account?
           <span onClick={() => navigate('/login')}>Click here</span>
         </p>
+
         <div id="recaptcha-container"></div>
       </div>
 

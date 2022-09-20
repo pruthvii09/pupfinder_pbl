@@ -8,6 +8,7 @@ import { useStateValue } from '../store';
 import Snackbar from '../components/Snackbar';
 import Loader from '../components/Loader';
 import styles from '../styles/components/Form.module.css';
+import { useEffect } from 'react';
 
 const Post = () => {
   const [{ uid }] = useStateValue();
@@ -29,6 +30,10 @@ const Post = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState('');
   const [color, setColor] = useState('');
+
+  useEffect(() => {
+    generateRecaptcha();
+  }, []);
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -59,7 +64,7 @@ const Post = () => {
       setOpenSnackbar(true);
       setLoading(false);
     } else {
-      generateRecaptcha();
+      // generateRecaptcha();
 
       const appVerifier = window.recaptchaVerifier;
 
@@ -118,7 +123,6 @@ const Post = () => {
               setLoading(false);
             });
 
-          // dispatch({ type: actionTypes.SET_UID, uid: user.uid });
           navigate('/account');
         })
         .catch((error) => {
