@@ -8,7 +8,7 @@ const Admin = () => {
   const USERNAME = 'username';
   const PASSWORD = 'password';
 
-  const [dispatch] = useStateValue();
+  const [{ uid }, dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

@@ -11,7 +11,7 @@ import styles from '../styles/components/Form.module.css';
 import { useEffect } from 'react';
 
 const Post = () => {
-  const [{ uid }] = useStateValue();
+  const [{ uid }, dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

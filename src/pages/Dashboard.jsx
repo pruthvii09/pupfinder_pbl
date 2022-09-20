@@ -10,7 +10,7 @@ import ViewPosts from '../components/dashboard/ViewPosts';
 import styles from '../styles/pages/Dashboard.module.css';
 
 const Dashboard = () => {
-  const [{ admin }] = useStateValue();
+  const [{ admin }, dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

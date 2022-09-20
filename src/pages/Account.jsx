@@ -16,7 +16,7 @@ import SingleOrder from '../components/account/SingleOrder';
 import DownloadQR from '../components/account/DownloadQR';
 
 const Account = () => {
-  const [{ uid }] = useStateValue();
+  const [{ uid }, dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

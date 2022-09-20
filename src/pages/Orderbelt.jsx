@@ -5,7 +5,7 @@ import Wizard from '../components/orderbelt/Wizard';
 import styles from '../styles/components/Form.module.css';
 
 const Orderbelt = () => {
-  const [{ uid }] = useStateValue();
+  const [{ uid }, dispatch] = useStateValue();
 
   const navigate = useNavigate();
 
