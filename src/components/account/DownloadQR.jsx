@@ -19,16 +19,16 @@ const DownloadQR = ({ freeOrder }) => {
   return (
     <div>
       <div className={styles.container}>
-        <img src={freeOrder.image} alt={`${freeOrder.id}_image`} />
+        <img src={freeOrder?.image} alt={`${freeOrder?.id}_image`} />
         <div className={styles.information}>
-          <h5>{freeOrder.petName}</h5>
-          <p>{freeOrder.phoneNumber}</p>
-          <p>{freeOrder.email}</p>
-          <p>{freeOrder.address}</p>
+          <h5>{freeOrder?.petName}</h5>
+          <p>{freeOrder?.phoneNumber}</p>
+          <p>{freeOrder?.email}</p>
+          <p>{freeOrder?.address}</p>
         </div>
         <button
           style={{ width: 230, fontSize: 14, padding: 0 }}
-          onClick={() => downloadQRCode(freeOrder.id)}
+          onClick={() => downloadQRCode(freeOrder?.id)}
         >
           Download QR
           <i

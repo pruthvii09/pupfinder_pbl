@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Belt from './Belt';
 import Snackbar from '../Snackbar';
 import styles from '../../styles/components/Form.module.css';
@@ -19,20 +19,15 @@ const BeltInformation = ({
   setEmail,
   beltType,
   setBeltType,
-  beltId,
   setBeltId,
-  beltImage,
   setBeltImage,
-  beltPrice,
   setBeltPrice,
-  setCurrentWizard,
   handleBeltInformation,
   openSnackbar,
   setOpenSnackbar,
   message,
-  setMessage,
   color,
-  setColor,
+  s,
 }) => {
   return (
     <div className={styles.formContainer}>
@@ -105,7 +100,7 @@ const BeltInformation = ({
         <div className={styles.beltsContainer}>
           <label htmlFor="petname">Belt type</label>
           <div className={styles.belts}>
-            {products.map((product) => (
+            {products?.map((product) => (
               <Belt
                 product={product}
                 beltType={beltType}

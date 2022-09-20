@@ -16,7 +16,7 @@ import Snackbar from '../components/Snackbar';
 import Loader from '../components/Loader';
 
 const Signup = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

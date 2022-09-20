@@ -4,13 +4,13 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { actionTypes, useStateValue } from '../store';
+import { useStateValue } from '../store';
 import Snackbar from '../components/Snackbar';
 import Loader from '../components/Loader';
 import styles from '../styles/components/Form.module.css';
 
 const Post = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
 
   const navigate = useNavigate();
 
@@ -206,7 +206,7 @@ const Post = () => {
                 <div className={styles.field}>
                   <label htmlFor="city">City</label>
                   <select onChange={(e) => setCity(e.target.value)} id="city">
-                    {options.map((option) => (
+                    {options?.map((option) => (
                       <option value={option} key={option}>
                         {option}
                       </option>

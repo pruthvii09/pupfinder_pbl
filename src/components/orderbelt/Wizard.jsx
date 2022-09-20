@@ -15,11 +15,9 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/components/orderbelt/Wizard.module.css';
 import BeltInformation from './BeltInformation';
 import OrderInformation from './OrderInformation';
-import PaymentInformation from './PaymentInformation';
-import { Navigate } from 'react-router-dom';
 
 const Wizard = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
 
   const [currentWizard, setCurrentWizard] = useState('1');
 

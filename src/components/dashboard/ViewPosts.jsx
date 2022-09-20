@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
-import styles from '../../styles/components/dashboard/ViewPosts.module.css';
 import Post from './Post';
 
 const ViewPosts = () => {
@@ -25,7 +24,7 @@ const ViewPosts = () => {
 
   return (
     <div>
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <Post post={post} key={post.id} />
       ))}
     </div>

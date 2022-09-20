@@ -19,9 +19,7 @@ const OrderInformation = ({
   openSnackbar,
   setOpenSnackbar,
   message,
-  setMessage,
   color,
-  setColor,
   loading,
 }) => {
   return (

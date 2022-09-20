@@ -9,7 +9,7 @@ import styles from '../styles/components/Form.module.css';
 import Loader from '../components/Loader';
 
 const Login = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   const navigate = useNavigate();
 

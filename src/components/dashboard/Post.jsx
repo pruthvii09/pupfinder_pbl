@@ -11,16 +11,16 @@ const Post = ({ post }) => {
 
   return (
     <div className={styles.container}>
-      <img src={post.image} alt={`${post.id}_image`} />
+      <img src={post?.image} alt={`${post?.id}_image`} />
       <div className={styles.information}>
-        <h5>{post.breed}</h5>
+        <h5>{post?.breed}</h5>
         <p>
-          {post.phoneNumber} <i className="fa-solid fa-phone"></i>
+          {post?.phoneNumber} <i className="fa-solid fa-phone"></i>
         </p>
-        <p>{post.address}</p>
-        <p>{post.city}</p>
+        <p>{post?.address}</p>
+        <p>{post?.city}</p>
       </div>
-      <button onClick={() => handleDeletePost(post.id)}>
+      <button onClick={() => handleDeletePost(post?.id)}>
         <i className="fa-solid fa-trash"></i>
       </button>
     </div>

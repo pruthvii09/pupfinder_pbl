@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { actionTypes, useStateValue } from '../store';
+import { useStateValue } from '../store';
 import Wizard from '../components/orderbelt/Wizard';
 import styles from '../styles/components/Form.module.css';
 
 const Orderbelt = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
 
   const navigate = useNavigate();
 

@@ -16,7 +16,7 @@ import SingleOrder from '../components/account/SingleOrder';
 import DownloadQR from '../components/account/DownloadQR';
 
 const Account = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
 
   const navigate = useNavigate();
 
@@ -92,7 +92,7 @@ const Account = () => {
   return (
     <div className={styles.accountContainer}>
       <h4>
-        <span>Hello</span> {user.name}!
+        <span>Hello</span> {user?.name}!
       </h4>
       {postedDogs.length <= 0 && SingleOrder.length <= 0 && (
         <div className={styles.warning}>
@@ -109,7 +109,7 @@ const Account = () => {
       {!postedDogs.length <= 0 && (
         <>
           <h1>Your posted dogs</h1>
-          {postedDogs.map((postedDog) => (
+          {postedDogs?.map((postedDog) => (
             <PostedDog postedDog={postedDog} key={postedDog.id} />
           ))}
         </>
@@ -118,7 +118,7 @@ const Account = () => {
       {!orders.length <= 0 && (
         <>
           <h1 style={{ marginTop: 50 }}>Your orders</h1>
-          {orders.map((order) => (
+          {orders?.map((order) => (
             <SingleOrder order={order} key={order.id} />
           ))}
         </>
@@ -127,7 +127,7 @@ const Account = () => {
       {!freeOrders.length <= 0 && (
         <>
           <h1 style={{ marginTop: 50 }}>Donwload QR</h1>
-          {freeOrders.map((freeOrder) => (
+          {freeOrders?.map((freeOrder) => (
             <DownloadQR freeOrder={freeOrder} key={freeOrder.id} />
           ))}
         </>

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { actionTypes, useStateValue } from '../store';
+import React from 'react';
+import { useStateValue } from '../store';
 import styles from '../styles/components/Header.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Header = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
   const [openNav, setOpenNav] = useState(false);
 
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import Loader from '../components/Loader';
 import styles from '../styles/components/Form.module.css';
 
 const FreeQR = () => {
-  const [{ uid }, dispatch] = useStateValue();
+  const [{ uid }] = useStateValue();
 
   const [id, setId] = useState('');
   const [image, setImage] = useState('');

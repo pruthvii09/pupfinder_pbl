@@ -111,7 +111,7 @@ const Home = () => {
       <div className={styles.container}>
         <h2>Adopt Dogs</h2>
         <div className={styles.cardsContainer} id="adopt">
-          {dogs.map((dog) => (
+          {dogs?.map((dog) => (
             <Card dog={dog} key={dog.id} />
           ))}
         </div>

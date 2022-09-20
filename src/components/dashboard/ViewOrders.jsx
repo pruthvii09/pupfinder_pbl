@@ -47,7 +47,7 @@ const ViewOrders = () => {
           <th>Generate QR Code</th>
           <th>Download Photo</th>
         </tr>
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <Order order={order} key={order.id} />
         ))}
       </table>

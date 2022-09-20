@@ -23,25 +23,25 @@ const Information = () => {
 
   return (
     <div className={styles.informationContainer}>
-      <img src={information.image} alt={`${information.name}_image`} />
-      <h4>{information.petName}</h4>
+      <img src={information?.image} alt={`${information?.name}_image`} />
+      <h4>{information?.petName}</h4>
       <p>
-        Owner's name:<span>{information.name}</span>
+        Owner's name:<span>{information?.name}</span>
       </p>
-      <a href={`tel:${information.phoneNumber}`}>
-        Contact number:<span>{information.phoneNumber}</span>
+      <a href={`tel:${information?.phoneNumber}`}>
+        Contact number:<span>{information?.phoneNumber}</span>
         <i className="fa-solid fa-phone"></i>
       </a>
-      <a href={`mailto:${information.email}`}>
-        Email:<span>{information.email}</span>
+      <a href={`mailto:${information?.email}`}>
+        Email:<span>{information?.email}</span>
         <i className="fa-solid fa-envelope"></i>
       </a>
       <p>
-        Address:<span>{information.address}</span>
+        Address:<span>{information?.address}</span>
         <i className="fa-solid fa-road"></i>
       </p>
 
-      <strong>Help {information.petName} to reach out his owner!</strong>
+      <strong>Help {information?.petName} to reach out his owner!</strong>
     </div>
   );
 };

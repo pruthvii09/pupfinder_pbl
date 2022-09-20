@@ -11,18 +11,18 @@ const Product = ({ product }) => {
 
   return (
     <div className={styles.container}>
-      <img src={product.image} alt={`${product.id}_image`} />
+      <img src={product?.image} alt={`${product?.id}_image`} />
       <div className={styles.information}>
-        <h5>{product.name}</h5>
+        <h5>{product?.name}</h5>
         <p>
-          Price: <span>Rs. {product.price}</span>
+          Price: <span>Rs. {product?.price}</span>
         </p>
         <p>
-          Quantity: <span>{product.quantity}</span>
+          Quantity: <span>{product?.quantity}</span>
         </p>
-        <p>Description: {product.description}</p>
+        <p>Description: {product?.description}</p>
       </div>
-      <button onClick={() => handleDeleteProduct(product.id)}>
+      <button onClick={() => handleDeleteProduct(product?.id)}>
         <i className="fa-solid fa-trash"></i>
       </button>
     </div>

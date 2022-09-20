@@ -11,13 +11,13 @@ const PostedDog = ({ postedDog }) => {
 
   return (
     <div className={styles.container}>
-      <img src={postedDog.image} alt={`${postedDog.id}_image`} />
+      <img src={postedDog?.image} alt={`${postedDog?.id}_image`} />
       <div className={styles.information}>
-        <h5>{postedDog.breed}</h5>
-        <p>{postedDog.address}</p>
-        <p>{postedDog.city}</p>
+        <h5>{postedDog?.breed}</h5>
+        <p>{postedDog?.address}</p>
+        <p>{postedDog?.city}</p>
       </div>
-      <button onClick={() => deletePostedDog(postedDog.id)}>
+      <button onClick={() => deletePostedDog(postedDog?.id)}>
         <i className="fa-solid fa-xmark"></i>
       </button>
     </div>

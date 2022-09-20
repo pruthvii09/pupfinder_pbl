@@ -25,7 +25,7 @@ const AllDonations = () => {
   return (
     <div className={styles.donationsContainer}>
       <h1>Our donors</h1>
-      {donations.map((donation) => (
+      {donations?.map((donation) => (
         <Donation donation={donation} key={donation.id} />
       ))}
     </div>
