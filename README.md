@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<h1 align="left"> Pup Finder </h1> <br>
+<p align="left">
+Built with ReactJS and Firebase.
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Introduction](#introduction)
+- [Features](#features)
+- [Screens](#screens)
+- [Technology](#technology)
 
-In the project directory, you can run:
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Hello! I have developed a Web App where you can post the Pets, like Dog and Cats for adoption. You can also get a QR code that you can tie with your pets belt. After scanning the QR code we get the information of Pets Owner.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In this Web App users can also buy the customized belts for their pets. One can also donate the money for the Pets NGO.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Get Free QR
+- Get Customized Belt
+- Post Pet For Adoption
+- Connect With Pet Owner
+- Donate for NGO
+- Phone Number Authentication
+- Razorpay Integration
 
-### `npm run build`
+## Screens
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 1 Home Screen
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-1_xrofph.png" width=200>
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 2 Sign Up
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684454/portfolio-images/pupfinder-2_gy6col.png" width=200>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 3 Log In
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-3_n46vhz.png" width=200>
+</p>
 
-### `npm run eject`
+- 4 Add Pet
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684454/portfolio-images/pupfinder-4_fskwm2.png" width=200>
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 5 Order Belt
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-5_whjzuc.png" width=200>
+</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 6 Profile
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684454/portfolio-images/pupfinder-6_cerdyw.png" width=200>
+</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 7 Get Free QR
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-7_e5fxzh.png" width=200>
+</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 8 Scan QR To Get Owner Information
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684452/portfolio-images/pupfinder-9-qr_pstxnq.png" width=200>
+</p>
 
-## Learn More
+- 9 Owner Information
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-10_vwklps.jpg" width=200>
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 10 Razorpay Payment
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-11_rgbsnx.jpg" width=200>
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 11 Donors Page
+<p align="left">
+  <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-12_eiatbd.png" width=200>
+</p>
 
-### Code Splitting
+## Technology
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React JS
+- Firebase
