@@ -31,7 +31,7 @@ In this Web App users can also buy the customized belts for their pets. One can 
 ## Screens
 
 - 1 Home Screen
-<p align="left">
+<p align="left" border="1">
   <img src = "https://res.cloudinary.com/dhananjaykuber-cloud/image/upload/v1679684453/portfolio-images/pupfinder-1_xrofph.png" width=420>
 </p>
 
