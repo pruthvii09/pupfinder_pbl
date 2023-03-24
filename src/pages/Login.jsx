@@ -68,6 +68,7 @@ const Login = () => {
             setShowOtpField(true);
           })
           .catch((error) => {
+            console.log(error);
             setMessage('Opps. Something went wrong, Please try again. :(');
             setColor('#d7082b');
             setOpenSnackbar(true);

@@ -127,7 +127,7 @@ const Signup = () => {
           navigate('/');
         })
         .catch((error) => {
-          if (error.message == 'dispatch is not a function') {
+          if (error.message === 'dispatch is not a function') {
             return navigate('/');
           }
           setMessage('OTP you have entered is incorrect. Please try again.');

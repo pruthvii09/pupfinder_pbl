@@ -115,8 +115,8 @@ const Wizard = () => {
       setLoading(false);
     } else {
       var options = {
-        key: 'rzp_test_DRDqnRyix1jf6E',
-        key_secret: 'itUgLBO43iLhoeMrrQv4gS7Q',
+        key: process.env.REACT_APP_RAZORPAY_KEY,
+        key_secret: process.env.REACT_APP_RAZORPAY_SECRET,
         amount: beltPrice * 100,
         currency: 'INR',
         name: 'pupfinder',
