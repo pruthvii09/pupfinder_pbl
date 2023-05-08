@@ -1,14 +1,14 @@
-import React from 'react';
-import QRCode from 'qrcode.react';
-import styles from '../../styles/components/account/PostedDog.module.css';
+import React from "react";
+import QRCode from "qrcode.react";
+import styles from "../../styles/components/account/PostedDog.module.css";
 
 const DownloadQR = ({ freeOrder }) => {
   const downloadQRCode = (id) => {
     const qrCodeURL = document
-      .getElementById('qrCodeEl')
-      .toDataURL('image/png ')
-      .replace('image/png', 'image/octet-stream');
-    let aEl = document.createElement('a');
+      .getElementById("qrCodeEl")
+      .toDataURL("image/png ")
+      .replace("image/png", "image/octet-stream");
+    let aEl = document.createElement("a");
     aEl.href = qrCodeURL;
     aEl.download = `${id}.png`;
     document.body.appendChild(aEl);
@@ -41,8 +41,8 @@ const DownloadQR = ({ freeOrder }) => {
       <QRCode
         id="qrCodeEl"
         size={150}
-        value={'https://pupfinder.vercel.app/' + freeOrder.id}
-        style={{ display: 'none' }}
+        value={"http://192.168.0.197:3000/" + freeOrder.id}
+        style={{ display: "none" }}
       />
     </div>
   );
